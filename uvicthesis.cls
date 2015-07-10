@@ -33,7 +33,18 @@
 \LoadClass{book}
 
 
-%   Margins and spacing
+%   FONTS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   Use the Latin Modern implementation of Computer Modern, for better support
+%   of diacritics and non-English glyphs, including correct PDF search.
+%   The fontenc package ensures proper hyphenation of accented words.
+%
+
+\RequirePackage{lmodern}
+\RequirePackage[T1]{fontenc}
+
+
+%   MARGINS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %   Sets margins according to the UVic thesis requirements, and defines
 %   commands to allow double- and one-and-a-half-spacing as necessary.
