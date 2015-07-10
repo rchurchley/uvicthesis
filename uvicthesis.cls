@@ -22,9 +22,13 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{uvicthesis}[2014/01/21 UVic Thesis/Dissertation Template]
 
-%   Options
+
+%   BASE CLASS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%   Passes all class options to the underlying book class
+%   uvicthesis.cls is based on the standard `book` document class.
+%   For more information (including standard class options), see
+%   http://texdoc.net/texmf-dist/doc/latex/base/classes.pdf
+%   or type `texdoc book` on the command line.
 %
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
