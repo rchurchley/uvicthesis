@@ -31,6 +31,8 @@
 %   or type `texdoc book` on the command line.
 %
 
+\PassOptionsToClass{12pt}{book}
+
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions
 
