@@ -52,18 +52,28 @@
 
 %   MARGINS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%   Sets margins according to the UVic thesis requirements, and defines
-%   commands to allow double- and one-and-a-half-spacing as necessary.
+%   Sets margins according to the UVic thesis requirements.
 %
 
 \RequirePackage[top=1.3in,left=1.5in,bottom=1in,right=1in,headsep=0.5in]{geometry}
 
-\RequirePackage{setspace}
-    \newcommand{\defaultspacing}{\doublespacing}
-    \newcommand{\smallspacing}{\onehalfspacing}
 
+%   LINE SPACING & PAGINATION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   Sets doublespacing for the document body. (This does not affect spacing
+%   inside figures, tables, and other floats, which remain single-spaced.)
+%
+%   Provides commands to set page numbers in roman numerals for preliminary
+%   pages (frontmatter) and arabic numbers for all other content (mainmatter).
+%
+
+\RequirePackage{setspace}
+\newcommand{\defaultspacing}{\doublespacing}
+\newcommand{\smallspacing}{\onehalfspacing}
+
+%   Fixes spacing for chapter titles
 \RequirePackage{titlesec}
-    \titleformat{\chapter}[display]{\Huge\bfseries}{Chapter \thechapter}{0pt}{}{}
+\titleformat{\chapter}[display]{\Huge\bfseries}{Chapter \thechapter}{0pt}{}{}
 
 \renewcommand{\frontmatter}{%
     \smallspacing
