@@ -91,35 +91,77 @@
 \pagestyle{plain}
 
 
-%   Title page metadata
+
+%   TITLE PAGE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%   Allows the user to easily set the information displayed on the title page.
+%   Generates a correctly-formatted title page, provided the following
+%   information is given in the preamble:
+%
+%   \title{...}
+%   \author{...}
+%   \previousdegrees{...}
+%   \thesistype{...}
+%   \degree{...}
+%   \department{...}
+%   \copyrightyear{...}
+%
+%   The ``all rights reserved'' text may also be overrided with
+%   \copyrightnotice{...}
 %
 
-\renewcommand{\@date}{\the\year}
+\renewcommand{\maketitle}{{%
+    \thispagestyle{empty}
+                    \begin{center}
+                        \@title                             \\[12pt]
+                          by                                \\[12pt]
 
-\newcommand{\type}[1]{\renewcommand\@type{#1}}
-\newcommand{\@type}{%
-    \ClassError{uvicthesis}{I need to know whether this is a thesis or a dissertation. Use \protect\type{Thesis} or \protect\type{Dissertation} in the preamble.}{}}
-    
-\newcommand{\authordetails}[1]{\renewcommand\@authordetails{#1}}
-\newcommand{\@authordetails}{}
+                        \@author                            \\
+                  \@previousdegrees                         \\[12pt]
 
-\newcommand{\degree}[1]{\renewcommand\@degree{#1}}
-\newcommand{\@degree}{%
-    \ClassError{uvicthesis}{What degree are you writing this for? Use \protect\degree in the preamble to tell me your expected degree.}{}}
 
-\newcommand{\department}[1]{\renewcommand\@department{#1}}
-\newcommand{\@department}{%
-    \ClassError{uvicthesis}{What department are you in? Let me know with  \protect\department in the preamble.}{}
+  A {\@thesistype} Submitted in Partial Fulfillment of the  \\
+            Requirements for the Degree of                  \\[12pt]
+
+               \MakeUppercase{\@degree}                     \\[12pt]
+
+                 in the \@department
+                                                            \vfill
+
+
+        \textcopyright\ \@author, \@copyrightyear           \\
+               University of Victoria                       \\[12pt]
+
+                 \@copyrightnotice
+                    \end{center}
+    \newpage
+}}
+
+%   The implementation creates a new "variable" for each metadata needed,
+%   initially storing placeholder text and an instruction to throw a warning
+%   if the user hasn't provided the correct information. We then define the
+%   user-facing commands to set the corresponding variables when called.
+
+\newcommand{\@thesistype}{THESIS \@MissingMetadata{thesistype}}
+\newcommand{\@previousdegrees}{PREVIOUS DEGREES \@MissingMetadata{previousdegrees}}
+\newcommand{\@degree}{DEGREE \@MissingMetadata{degree}}
+\newcommand{\@department}{DEPARTMENT \@MissingMetadata{department}}
+\newcommand{\@copyrightyear}{YEAR \@MissingMetadata{copyrightyear}}
+\newcommand{\@copyrightnotice}{%
+    All rights reserved. This \MakeLowercase{\@thesistype} may not be reproduced in whole or in part, by photocopying or other means, without the permission of the author.
 }
 
-\newcommand\panelist[3]{\noindent #1, #2\\\noindent(#3)\tpbreak}
-\newcommand{\panel}[1]{\renewcommand\@panel{#1}}
-\newcommand{\@panel}{}
+\newcommand{\@MissingMetadata}[1]{\ClassWarning{sfuthesis}{%
+    Missing #1. Set this in the preamble to fix your frontmatter.
+}}
+
+\newcommand{\previousdegrees}[1]{\renewcommand{\@previousdegrees}{#1}}
+\newcommand{\thesistype}[1]{\renewcommand{\@thesistype}{#1}}
+\newcommand{\degree}[1]{\renewcommand{\@degree}{#1}}
+\newcommand{\department}[1]{\renewcommand{\@department}{#1}}
+\newcommand{\copyrightyear}[1]{\renewcommand{\@copyrightyear}{#1}}
+\newcommand{\copyrightnotice}[1]{\renewcommand{\@copyrightnotice}{#1}}
 
 
-%   Title page
 %
 %   Displays the title page and second page listing the supervisory
 %   committee.
@@ -158,12 +200,6 @@
     \@panel                                                             \vfill
 }
 
-\renewcommand{\maketitle}{%
-    \thispagestyle{empty}
-    \maketitlepage%             % prints the actual title page (defined above)
-    \newpage%
-    \setcounter{footnote}{0}
-}
 
 \newcommand{\makecommittee}{%
     \makepanelpage
