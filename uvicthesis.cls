@@ -30,6 +30,23 @@
 %   http://texdoc.net/texmf-dist/doc/latex/base/classes.pdf
 %   or type `texdoc book` on the command line.
 %
+%   The UVic Library has moved to digital-only thesis submission and no longer
+%   requires print copies of theses be submitted. However, if you do want to
+%   print your thesis, you can use the `bound` or `twoside` option to set
+%   margins for book binding.
+%
+
+\RequirePackage{etoolbox}
+\newtoggle{bound}
+
+\DeclareOption{bound}{\toggletrue{bound}}
+\DeclareOption{twoside}{\toggletrue{bound}}
+
+\iftoggle{bound}{
+    \PassOptionsToClass{twoside}{book}
+}{%else
+    \PassOptionsToClass{oneside}{book}
+}
 
 \PassOptionsToClass{12pt}{book}
 
@@ -71,7 +88,7 @@
 
 \RequirePackage{setspace}
 \RequirePackage{titlesec}
-\usepackage{fancyhdr}
+\RequirePackage{fancyhdr}
 
 \newcommand{\defaultspacing}{\doublespacing}
 \newcommand{\smallspacing}{\onehalfspacing}
