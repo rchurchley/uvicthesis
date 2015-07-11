@@ -162,50 +162,41 @@
 \newcommand{\copyrightnotice}[1]{\renewcommand{\@copyrightnotice}{#1}}
 
 
+%   COMMITTEE PAGE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%   Displays the title page and second page listing the supervisory
-%   committee.
+%   Generates a correctly formatted committee page, provided a commitee is
+%   given in the preamble as follows:
+%
+%   \committee{
+%       \member{Name}{Supervisor}{Department}
+%       \member{Name}{Role on Committee}{Department}
+%   }
+%
+%   To display the committee, invoke \makecommittee.
 %
 
-\RequirePackage{textcase}
-\newcommand{\tpbreak}{\\[\baselineskip]}    % an extra big line break
 
-\newcommand{\maketitlepage}{{\centering
-    \@title                                                             \tpbreak
-    by                                                                  \tpbreak
-    \@author                                                            \\
-    \@authordetails                                                     \tpbreak
-    A {\@type} Submitted in Partial Fulfillment of the \\
-    Requirements for the Degree of                                      \tpbreak
-    \MakeUppercase{\@degree}                                                            \tpbreak
-    in the \@department                     \\\vfill
-    
-    \begin{tabular}{cl}
-        \copyright  & \@author, \@date\\
-                    & University of Victoria
-    \end{tabular}                                                       \tpbreak
-    All rights reserved. This \MakeLowercase{\@type} may not be reproduced in whole or in part, by photocopying or other means, without the permission of the author.       \\
-}}
-
-\newcommand{\makepanelpage}{
+\newcommand{\makecommittee}{
     \addtoToC{Supervisory Committee}
-    {\centering
-    \@title                                                             \tpbreak
-    by                                                                  \tpbreak
-    \@author                                                            \\
-    \@authordetails                                                     \tpbreak
-    }                                                                   \vfill
+                    \begin{center}
+                        \@title                             \\[12pt]
+                          by                                \\[12pt]
 
-    \noindent Supervisory Committee                                     \tpbreak
-    \@panel                                                             \vfill
+                        \@author                            \\
+                   \@previousdegrees                        \\[12pt]
+                      \end{center}                          \vfill
+
+    \noindent Supervisory Committee                         \\[12pt]
+    \@committee                                             \vfill
+    \newpage
 }
 
+%   Implementation: Have \@committee store the committee, \committee set it,
+%   and \chair and \member format its contents.
 
-\newcommand{\makecommittee}{%
-    \makepanelpage
-    \newpage%
-}
-
+\newcommand{\@committee}{}
+\newcommand{\committee}[1]{\renewcommand\@committee{#1}}
+\newcommand{\member}[3]{\noindent #1, #2\\(#3)\\[12pt]}
 
 %   Abstract
 %
