@@ -20,7 +20,7 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uvicthesis}[2014/01/21 UVic Thesis/Dissertation Template]
+\ProvidesClass{uvicthesis}[2015/07/10 UVic Thesis/Dissertation Template]
 
 
 %   BASE CLASS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
