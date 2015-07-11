@@ -216,21 +216,21 @@
     }{}
 
 
-%   Table of Contents
+%   TABLE OF CONTENTS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %   Fixes some display issues for the table of contents.
 %   Provides a command to add sections like the bibliography to the ToC.
 %
 
+\RequirePackage{tocloft}
+\renewcommand{\contentsname}{Table of Contents}
+
 \newcommand{\addtoToC}[1]{\addcontentsline{toc}{chapter}{#1}}
 
-\usepackage{tocloft}
 \renewcommand{\cfttabpresnum}{Table\ }
 \renewcommand{\cfttabnumwidth}{0.75in}
 \renewcommand{\cftfigpresnum}{Figure\ }
 \renewcommand{\cftfignumwidth}{0.90in}
-
-\setcounter{lofdepth}{2}
 
 
 %   Acknowledgements
