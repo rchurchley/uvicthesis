@@ -249,10 +249,19 @@
     }{\newpage}
 
 
+%   HYPERREF SETUP  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
+%   If the user loads hyperref, make sure that links to (e.g.) frontmatter
+%   sections point to the correct page and that autoreferences to appendices
+%   display correctly.
 %
 
+\AtBeginDocument{%
+    \@ifpackageloaded{hyperref}{%
+        \pretocmd{\addtoToC}{\phantomsection{}}{}{}
+        \newcommand{\Appendixautorefname}{Appendix}
     }{}
+}
 
 
 \endinput
