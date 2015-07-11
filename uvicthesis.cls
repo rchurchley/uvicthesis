@@ -66,35 +66,22 @@
 %   Provides commands to set page numbers in roman numerals for preliminary
 %   pages (frontmatter) and arabic numbers for all other content (mainmatter).
 %
+%   Sets the page number in the top right corner of all pages by default.
+%
 
 \RequirePackage{setspace}
+\RequirePackage{titlesec}
+\usepackage{fancyhdr}
+
 \newcommand{\defaultspacing}{\doublespacing}
 \newcommand{\smallspacing}{\onehalfspacing}
+\renewcommand{\frontmatter}{\smallspacing\pagenumbering{roman}}
+\renewcommand{\mainmatter}{\clearpage\defaultspacing\pagenumbering{arabic}}
 
 %   Fixes spacing for chapter titles
-\RequirePackage{titlesec}
 \titleformat{\chapter}[display]{\Huge\bfseries}{Chapter \thechapter}{0pt}{}{}
 
-\renewcommand{\frontmatter}{%
-    \smallspacing
-    \pagenumbering{roman}
-}
-
-\renewcommand{\mainmatter}{%
-    \clearpage
-    \defaultspacing
-    \pagenumbering{arabic}
-}
-
-
-%   Headers
-%
-%   Sets the page number in the top right corner of all pages by default
-%
-
-\usepackage{fancyhdr}
 \setlength{\headheight}{15pt}
-
 \fancypagestyle{plain}{%
         \fancyhf{}
         \fancyhead[R]{\thepage}
