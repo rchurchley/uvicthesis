@@ -198,21 +198,21 @@
 \newcommand{\committee}[1]{\renewcommand\@committee{#1}}
 \newcommand{\member}[3]{\noindent #1, #2\\(#3)\\[12pt]}
 
-%   Abstract
+
+%   ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%   Displays the abstract page (including the supervisory committee again) and
-%   adds it to the table of contents.
+%   Redefines the abstract environment to set it on its own page together with
+%   the supervisory committee again.
 %
 
 \newenvironment{abstract}{%
-    \newpage\addtoToC{Abstract}
+    \addtoToC{Abstract}
 
-    \noindent \textbf{Supervisory Committee}
-    \tpbreak
-    \@panel
+    \noindent \textbf{Supervisory Committee}                \\[12pt]
+    \@committee
 
     \begin{center}\textbf{ABSTRACT}\end{center}
-    
+
     }{}
 
 
