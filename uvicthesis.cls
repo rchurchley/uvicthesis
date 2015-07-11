@@ -233,29 +233,25 @@
 \renewcommand{\cftfignumwidth}{0.90in}
 
 
-%   Acknowledgements
+%   DEDICATION AND ACKNOWLEDGEMENTS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%   Displays the acknowledgements page and adds it to the table of contents.
-%
-
-\newenvironment{acknowledgements}{%
-    \newpage\addtoToC{Acknowledgements}
-
-    \begin{center}\textbf{ACKNOWLEDGEMENTS}\end{center}
-    
-    }{}
-
-
-%   Dedication
-%
-%   Displays the dedication page and adds it to the table of contents.
+%   Provides environments for optional dedication and acknowledgements pages.
 %
 
 \newenvironment{dedication}{%
-    \newpage\addtoToC{Dedication}
+    \addtoToC{Dedication}
+    \chapter*{Dedication}
+    }{\newpage}
 
-    \begin{center}\textbf{DEDICATION}\end{center}
-    
+\newenvironment{acknowledgements}{%
+    \addtoToC{Acknowledgements}
+    \chapter*{Acknowledgements}
+    }{\newpage}
+
+
+%
+%
+
     }{}
 
 
