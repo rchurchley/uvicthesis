@@ -167,7 +167,7 @@
     All rights reserved. This \MakeLowercase{\@thesistype} may not be reproduced in whole or in part, by photocopying or other means, without the permission of the author.
 }
 
-\newcommand{\@MissingMetadata}[1]{\ClassWarning{sfuthesis}{%
+\newcommand{\@MissingMetadata}[1]{\ClassWarning{uvicthesis}{%
     Missing #1. Set this in the preamble to fix your frontmatter.
 }}
 
