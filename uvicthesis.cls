@@ -96,7 +96,7 @@
 \renewcommand{\mainmatter}{\clearpage\defaultspacing\pagenumbering{arabic}}
 
 %   Fixes spacing for chapter titles
-\titleformat{\chapter}[display]{\Huge\bfseries}{Chapter \thechapter}{0pt}{}{}
+\titleformat{\chapter}[display]{\Huge\bfseries}{\@chapapp \  \thechapter}{0pt}{}{}
 
 \setlength{\headheight}{15pt}
 \fancypagestyle{plain}{%
@@ -230,7 +230,7 @@
 
     \begin{center}\textbf{ABSTRACT}\end{center}
 
-    }{}
+    }{\clearpage}
 
 
 %   TABLE OF CONTENTS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -240,6 +240,7 @@
 %
 
 \RequirePackage{tocloft}
+\RequirePackage[titletoc]{appendix}
 \renewcommand{\contentsname}{Table of Contents}
 
 \newcommand{\addtoToC}[1]{\addcontentsline{toc}{chapter}{#1}}
@@ -264,6 +265,14 @@
     \addtoToC{Acknowledgements}
     \chapter*{Acknowledgements}
     }{\newpage}
+
+
+%   APPENDICES  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%
+% 
+%   Prevent book class from removing lettering from appendix chapters.
+% 
+
+\renewcommand{\backmatter}{}
 
 
 %   HYPERREF SETUP  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
