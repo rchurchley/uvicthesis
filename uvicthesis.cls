@@ -268,11 +268,11 @@
 
 
 %   APPENDICES  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%
-% 
+%
 %   Prevent book class from removing lettering from appendix chapters.
-% 
+%
 
-\renewcommand{\backmatter}{}
+\renewcommand{\backmatter}{\clearpage}
 
 
 %   HYPERREF SETUP  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
