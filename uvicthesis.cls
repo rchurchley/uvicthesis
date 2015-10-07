@@ -211,9 +211,11 @@
 %   Implementation: Have \@committee store the committee, \committee set it,
 %   and \chair and \member format its contents.
 
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
 \newcommand{\@committee}{}
 \newcommand{\committee}[1]{\renewcommand\@committee{#1}}
-\newcommand{\member}[3]{\noindent #1, #2\\(#3)\\[12pt]}
+\newcommand{\member}[3]{\HRule\\\noindent #1, #2\\(#3)\\[12pt]}
 
 
 %   ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -248,8 +250,10 @@
 \renewcommand{\cfttabpresnum}{Table\ }
 \renewcommand{\cfttabnumwidth}{0.75in}
 \renewcommand{\cftfigpresnum}{Figure\ }
-\renewcommand{\cftfignumwidth}{0.90in}
+\renewcommand{\cftfignumwidth}{0.80in}
 
+% Float Customization
+\renewcommand{\floatpagefraction}{0.01}
 
 %   DEDICATION AND ACKNOWLEDGEMENTS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
